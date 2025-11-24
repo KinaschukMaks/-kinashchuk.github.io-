@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My shopping list</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        button {
+            margin-left: 10px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .edit-input {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>My shopping list</h1>
+
+<label>
+    Enter a new item:
+    <input type="text" id="itemInput">
+</label>
+<button id="addBtn">Add item</button>
+
+<ul id="shoppingList"></ul>
+
+<script>
+
+// Додавання елемента
+document.getElementById("addBtn").addEventListener("click", addItem);
+document.getElementById("itemInput").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") addItem();
+});
+
+function addItem() {
+    const input = document.getElementById("itemInput");
+    const value = input.value.trim();
+
+    if (value === "") return;
+
+    const li = document.createElement("li");
+
+    const span = document.createElement("span");
+    span.textContent = value;
+
+    // Кнопка редагування
+    const editBtn = document.createElement("button");
+    editBtn.textContent = "Edit";
+
+    editBtn.onclick = function() {
+        const currentText = span.textContent;
+
+        const editInput = document.createElement("input");
+        editInput.type = "text";
+        editInput.value = currentText;
+        editInput.className = "edit-input";
+
+        const saveBtn = document.createElement("button");
+        saveBtn.textContent = "Save";
+
+        saveBtn.onclick = function() {
+            const newValue = editInput.value.trim();
+            if (newValue !== "") span.textContent = newValue;
+
+            li.replaceChild(span, editInput);
+            li.replaceChild(editBtn, saveBtn);
+        };
+
+        li.replaceChild(editInput, span);
+        li.replaceChild(saveBtn, editBtn);
+        editInput.focus();
+    };
+
+    // Кнопка видалення
+    const delBtn = document.createElement("button");
+    delBtn.textContent = "Delete";
+    delBtn.onclick = function() {
+        if (confirm("Are you sure you want to delete this item?")) {
+            li.remove();
+        }
+    };
+
+    li.appendChild(span);
+    li.appendChild(editBtn);
+    li.appendChild(delBtn);
+
+    document.getElementById("shoppingList").appendChild(li);
+
+    input.value = "";
+    input.focus();
+}
+
+</script>
+
+</body>
+</html>
