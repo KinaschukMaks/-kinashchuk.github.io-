@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Каталог настільних ігор</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+    }
+    h1 {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .swiper {
+      width: 100%;
+      padding: 40px 0;
+    }
+    .swiper-slide {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+    }
+    .product-img {
+      width: 160px;
+      height: auto;
+    }
+    .product-title {
+      font-size: 20px;
+      margin: 15px 0;
+      color: #0077cc;
+      font-weight: bold;
+    }
+    .price {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .btn {
+      background: #ffd500;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .swiper-slide {
+        width: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Каталог настільних ігор</h1>
+
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+
+      <div class="swiper-slide">
+        <img src="/mnt/data/d50f5b02-b310-4cab-b28b-0216497d0a9f.png" class="product-img" />
+        <div class="product-title">Котосови</div>
+        <div class="price">Незабаром у продажі</div>
+        <a href="#" class="btn">Детальніше</a>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="https://i.imgur.com/n1Yw2iB.png" class="product-img" />
+        <div class="product-title">Набір Розумника</div>
+        <div class="price"><s>210 грн</s> 190 грн</div>
+        <a href="https://example.com" class="btn">У кошик</a>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="https://i.imgur.com/tZ5cA1E.png" class="product-img" />
+        <div class="product-title">ТурбоРахунок</div>
+        <div class="price">320 грн</div>
+        <a href="https://example.com" class="btn">У кошик</a>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="https://i.imgur.com/zptX0QW.png" class="product-img" />
+        <div class="product-title">ТвариноБукви</div>
+        <div class="price">450 грн</div>
+        <a href="https://example.com" class="btn">У кошик</a>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="https://i.imgur.com/WkW5yaP.png" class="product-img" />
+        <div class="product-title">Мафія</div>
+        <div class="price">300 грн</div>
+        <a href="https://example.com" class="btn">У кошик</a>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="https://i.imgur.com/4ZQzJ7n.png" class="product-img" />
+        <div class="product-title">Колонізатори</div>
+        <div class="price">850 грн</div>
+        <a href="https://example.com" class="btn">У кошик</a>
+      </div>
+
+    </div>
+
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.mySwiper', {
+      slidesPerView: 3,
+      spaceBetween: 20,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        320: { slidesPerView: 1 },
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 }
+      }
+    });
+  </script>
+</body>
+</html>
